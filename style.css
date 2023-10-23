@@ -15,7 +15,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 1400px;
+  /* flex-direction: column; */
   margin-top: 25px;
 }
 .head{
@@ -57,6 +57,11 @@ button{
   cursor: pointer;
 }
 
+button:active{
+  background-color: darkgray;
+  transform: scale(1);
+}
+
 .range-box{
   display: flex;
   flex-direction: column;
@@ -77,9 +82,16 @@ button{
 
 .grid-box{
   display: grid;
+  grid-template-columns: repeat(16,1fr);
+  grid-template-rows: repeat(16,1fr);
   width: 600px;
   height: 600px;
   border-style: solid;
+  gap:1px;
+}
+
+.cube {
+  border: 1px solid rgb(244, 244, 244);
 }
 
 .footer {
@@ -95,6 +107,31 @@ button{
 button:hover,input:hover{
   transform: scale(1.1);
 }
+
+
+
+
+@media (max-width:600px) {
+ .main-block{
+  flex-direction: column;
+  margin-top:0px;
+ }
+
+ .grid-box{
+  width: 250px;
+  height: 250px;
+ }
+
+ .aside{
+  margin: 0px;
+ }
+  
+ button{
+  margin: 5px;
+ }
+}
+
+
 
 
 

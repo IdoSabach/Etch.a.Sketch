@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <title>Etch-a-sketch</title>
-</head>
-<body>
-  <header class="head">Etch-a-sketch</header>
-  <main class="main-block">
-    <aside class="aside">
-      <input type="color" class="color">
-      <button class="color-mode">Color-mode</button>
-      <button class="random-color">Random color</button>
-      <button class="remove">Remove</button>
-      <button class="clear">Clear</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
 
-      <div class="range-box">
-        <div class="text-of-range">16 x 16</div>
-        <input type="range" class="range" value="16" min="1" max="64">
-      </div>
-    </aside>
-    <div class="grid-box"></div>
-  </main>
-  
+    <title>Etch-a-sketch</title>
+  </head>
+  <body>
+    <header class="head">Etch-a-sketch</header>
+    <main class="main-block">
+      <aside class="aside">
+        <input type="color" class="color" />
+        <button  id="btn" class="color-mode" data-color="darkgray">Color mode</button>
+        <button id="btn" class="random-color" data-color="darkgray">Random color</button>
+        <button id="btn" class="remove" data-color="darkgray">Remove</button>
+        <button id="btn" class="clear" data-color="darkgray">Clear</button>
 
-  <footer class="footer">
-    Build by Ido sabach 
-  </footer>
+        <div class="range-box">
+          <div class="text-of-range">16 x 16</div>
+          <input type="range" class="range" value="16" min="1" max="64" />
+        </div>
+      </aside>
+      <div class="grid-box"></div>
+    </main>
 
-</body>
+    <footer class="footer">Build by Ido sabach</footer>
+    <script src="script.js"></script>
+  </body>
 </html>

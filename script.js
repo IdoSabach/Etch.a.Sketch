@@ -1,0 +1,74 @@
+const color = document.querySelector('.color');
+const colorMode = document.querySelector('.color-mode');
+const randomColor = document.querySelector('.random-color');
+const remove = document.querySelector('.remove');
+const clear = document.querySelector('.clear');
+const textOfRange = document.querySelector('.text-of-range');
+const range = document.querySelector('.range');
+const gridBox = document.querySelector('.grid-box');
+const buttons = document.querySelectorAll('#btn');
+
+
+
+
+range.addEventListener('input', updateSize);
+
+function updateSize(){
+  const value = range.value;
+  textOfRange.textContent = `${value} x ${value}`;
+
+  gridBox.innerHTML = '';
+
+  
+
+  for(let i = 0; i<value*value;i++){
+    const cube = document.createElement('div');
+    cube.classList.add('cube');
+    gridBox.appendChild(cube);
+
+    gridBox.style.gridTemplateColumns = `repeat(${value}, 1fr)`
+    gridBox.style.gridTemplateRows = `repeat(${value}, 1fr)`
+ 
+  }
+}
+
+color.addEventListener('input',(e)=>{
+  const chooseColor = e.target.value;
+  paint(chooseColor);
+});
+
+function paint(color){
+  const cubes = document.querySelectorAll('.cube');
+
+  cubes.forEach((cube) =>{
+    cube.addEventListener('click',function(){
+      cube.style.backgroundColor = color;
+    })
+  })
+}
+
+
+
+
+const buttonArray = Array.from(buttons);
+
+buttonArray.forEach(button=>{
+  button.addEventListener('click',function(){
+    buttonArray.forEach(btn =>{
+      btn.classList.remove("active");
+      btn.style.backgroundColor = "";
+    })
+  
+  this.classList.add("active");
+
+  const color = this.getAttribute("data-color");
+  if(color){
+    this.style.backgroundColor = color;
+  }
+})
+})
+
+
+
+
+updateSize();
