@@ -55,6 +55,7 @@ button{
   transition: transform 0.5s;
   border-radius: 15px;
   cursor: pointer;
+  color: black;
 }
 
 button:active{
@@ -120,6 +121,7 @@ button:hover,input:hover{
  .grid-box{
   width: 250px;
   height: 250px;
+  margin-bottom: 10px;
  }
 
  .aside{
@@ -128,6 +130,11 @@ button:hover,input:hover{
   
  button{
   margin: 5px;
+  color: black;
+ }
+ .head{
+  padding: 5px;
+  font-size: 32px;
  }
 }
 
