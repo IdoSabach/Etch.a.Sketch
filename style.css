@@ -88,11 +88,11 @@ button:active{
   width: 600px;
   height: 600px;
   border-style: solid;
-  gap:1px;
+  /* gap:1px; */
 }
 
 .cube {
-  border: 1px solid rgb(244, 244, 244);
+  /* border: 1px solid rgb(244, 244, 244); */
 }
 
 .icon{
