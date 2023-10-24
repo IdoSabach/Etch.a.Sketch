@@ -9,6 +9,20 @@ const gridBox = document.querySelector('.grid-box');
 const buttons = document.querySelectorAll('#btn');
 
 
+//color mode
+colorMode.addEventListener('click',defColor);
+function defColor(){
+  const color = "black";
+  const cubes = document.querySelectorAll('.cube');
+  cubes.forEach((cube) =>{
+    cube.addEventListener('mouseover',function(){
+      cube.style.backgroundColor = color;
+    })
+  })
+}
+
+
+
 // clear
 clear.addEventListener('click', removeAll);
 
@@ -79,7 +93,7 @@ function random(){
   const cubes = document.querySelectorAll('.cube');
 
   cubes.forEach((cube)=>{
-    cube.addEventListener('click', function(){
+    cube.addEventListener('mouseover', function(){
       cube.style.backgroundColor = getColor();
     })
   })
@@ -95,25 +109,6 @@ function getColor(){
   }
   return color;
 }
-
-
-// const buttonArray = Array.from(buttons);
-
-// buttonArray.forEach(button=>{
-//   button.addEventListener('click',function(){
-//     buttonArray.forEach(btn =>{
-//       btn.classList.remove("active");
-//       btn.style.backgroundColor = "";
-//     })
-  
-//   this.classList.add("active");
-
-//   const color = this.getAttribute("data-color");
-//   if(color){
-//     this.style.backgroundColor = color;
-//   }
-// })
-// })
 
 
 

@@ -60,7 +60,7 @@ button{
 
 button:active{
   background-color: darkgray;
-  transform: scale(1);
+  /* transform: scale(1); */
 }
 
 .range-box{
