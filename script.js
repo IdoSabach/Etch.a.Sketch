@@ -9,6 +9,7 @@ const gridBox = document.querySelector('.grid-box');
 const buttons = document.querySelectorAll('#btn');
 
 
+// clear
 clear.addEventListener('click', removeAll);
 
 function removeAll(){
@@ -20,6 +21,7 @@ function removeAll(){
   })
 }
 
+//remove
 remove.addEventListener('click',removeOneBlock);
 function removeOneBlock(){
   const cubes = document.querySelectorAll('.cube');
@@ -32,6 +34,8 @@ function removeOneBlock(){
   })
 }
 
+
+//update size
 range.addEventListener('input', updateSize);
 
 function updateSize(){
@@ -49,6 +53,8 @@ function updateSize(){
   }
 }
 
+
+// color picker
 color.addEventListener('input',(e)=>{
   const chooseColor = e.target.value;
   paint(chooseColor);
@@ -65,6 +71,30 @@ function paint(color){
 }
 
 
+
+// random color
+randomColor.addEventListener('click',random);
+
+function random(){
+  const cubes = document.querySelectorAll('.cube');
+
+  cubes.forEach((cube)=>{
+    cube.addEventListener('click', function(){
+      cube.style.backgroundColor = getColor();
+    })
+  })
+}
+
+
+function getColor(){
+  const letters = "0123456789ABCDEF";
+  let color = '#';
+
+  for(let i = 0; i<6;i++){
+    color += letters[Math.floor(Math.random()*16)];
+  }
+  return color;
+}
 
 
 // const buttonArray = Array.from(buttons);
