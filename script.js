@@ -9,7 +9,15 @@ const gridBox = document.querySelector('.grid-box');
 const buttons = document.querySelectorAll('#btn');
 
 
+clear.addEventListener('click', removeAll());
 
+function removeAll(){
+  const cubes = document.querySelectorAll('cube');
+
+  cubes.forEach((cube) =>{
+    cube.classList.remove('cube');
+  })
+}
 
 range.addEventListener('input', updateSize);
 
@@ -50,23 +58,23 @@ function paint(color){
 
 
 
-const buttonArray = Array.from(buttons);
+// const buttonArray = Array.from(buttons);
 
-buttonArray.forEach(button=>{
-  button.addEventListener('click',function(){
-    buttonArray.forEach(btn =>{
-      btn.classList.remove("active");
-      btn.style.backgroundColor = "";
-    })
+// buttonArray.forEach(button=>{
+//   button.addEventListener('click',function(){
+//     buttonArray.forEach(btn =>{
+//       btn.classList.remove("active");
+//       btn.style.backgroundColor = "";
+//     })
   
-  this.classList.add("active");
+//   this.classList.add("active");
 
-  const color = this.getAttribute("data-color");
-  if(color){
-    this.style.backgroundColor = color;
-  }
-})
-})
+//   const color = this.getAttribute("data-color");
+//   if(color){
+//     this.style.backgroundColor = color;
+//   }
+// })
+// })
 
 
 
