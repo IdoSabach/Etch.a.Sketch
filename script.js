@@ -9,13 +9,26 @@ const gridBox = document.querySelector('.grid-box');
 const buttons = document.querySelectorAll('#btn');
 
 
-clear.addEventListener('click', removeAll());
+clear.addEventListener('click', removeAll);
 
 function removeAll(){
-  const cubes = document.querySelectorAll('cube');
+  const cubes = document.querySelectorAll('.cube');
+  const color = "white";
 
   cubes.forEach((cube) =>{
-    cube.classList.remove('cube');
+    cube.style.backgroundColor = color;
+  })
+}
+
+remove.addEventListener('click',removeOneBlock);
+function removeOneBlock(){
+  const cubes = document.querySelectorAll('.cube');
+
+  cubes.forEach((cube) =>{
+    cube.addEventListener('mouseover',function(){
+      const color = "white";
+      cube.style.backgroundColor = color;
+    })
   })
 }
 
@@ -24,10 +37,7 @@ range.addEventListener('input', updateSize);
 function updateSize(){
   const value = range.value;
   textOfRange.textContent = `${value} x ${value}`;
-
   gridBox.innerHTML = '';
-
-  
 
   for(let i = 0; i<value*value;i++){
     const cube = document.createElement('div');
@@ -36,7 +46,6 @@ function updateSize(){
 
     gridBox.style.gridTemplateColumns = `repeat(${value}, 1fr)`
     gridBox.style.gridTemplateRows = `repeat(${value}, 1fr)`
- 
   }
 }
 
