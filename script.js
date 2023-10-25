@@ -7,6 +7,32 @@ const textOfRange = document.querySelector('.text-of-range');
 const range = document.querySelector('.range');
 const gridBox = document.querySelector('.grid-box');
 const buttons = document.querySelectorAll('#btn');
+const levi = document.querySelector('.Levitation-mode')
+
+
+//Levitation mode
+levi.addEventListener('click',leviFunc);
+
+// function getGrey(){
+//   const color = ["#cccccc","#b8b8b8","#adadad","#999999","#8f8f8f","#7a7a7a","#666666","#525252","#3d3d3d","#333333"];
+
+//    for(let i =0; i<color.length;i++){
+//     return color[i]
+//    }
+// }
+// getGrey()
+
+function leviFunc(){
+  const cubes = document.querySelectorAll('.cube');
+  let op = 0.01;
+  cubes.forEach((cube) =>{
+    cube.addEventListener('mouseover',function(){
+      cube.style.backgroundColor = `rgb(0,0,0,${op}`;
+      op+=0.001;
+    })
+    
+  })
+}
 
 
 //color mode
@@ -78,7 +104,7 @@ function paint(color){
   const cubes = document.querySelectorAll('.cube');
 
   cubes.forEach((cube) =>{
-    cube.addEventListener('click',function(){
+    cube.addEventListener('mouseover',function(){
       cube.style.backgroundColor = color;
     })
   })
@@ -114,3 +140,5 @@ function getColor(){
 
 
 updateSize();
+
+
