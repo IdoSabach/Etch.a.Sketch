@@ -10,8 +10,21 @@ const buttons = document.querySelectorAll('#btn');
 const levi = document.querySelector('.Levitation-mode')
 
 
-//Levitation mode
+
 levi.addEventListener('click',leviFunc);
+colorMode.addEventListener('click',defColor);
+clear.addEventListener('click', removeAll);
+remove.addEventListener('click',removeOneBlock);
+// range.addEventListener('input', updateSize);
+range.addEventListener('input', debounce(updateSize, 200, false));
+randomColor.addEventListener('click',random);
+color.addEventListener('input',(e)=>{
+  const chooseColor = e.target.value;
+  paint(chooseColor);
+});
+
+
+
 
 // function getGrey(){
 //   const color = ["#cccccc","#b8b8b8","#adadad","#999999","#8f8f8f","#7a7a7a","#666666","#525252","#3d3d3d","#333333"];
@@ -34,9 +47,6 @@ function leviFunc(){
   })
 }
 
-
-//color mode
-colorMode.addEventListener('click',defColor);
 function defColor(){
   const color = "black";
   const cubes = document.querySelectorAll('.cube');
@@ -48,10 +58,6 @@ function defColor(){
 }
 
 
-
-// clear
-clear.addEventListener('click', removeAll);
-
 function removeAll(){
   const cubes = document.querySelectorAll('.cube');
   const color = "white";
@@ -61,8 +67,7 @@ function removeAll(){
   })
 }
 
-//remove
-remove.addEventListener('click',removeOneBlock);
+
 function removeOneBlock(){
   const cubes = document.querySelectorAll('.cube');
 
@@ -74,12 +79,9 @@ function removeOneBlock(){
   })
 }
 
-
-//update size
-range.addEventListener('input', updateSize);
-
 function updateSize(){
   const value = range.value;
+  console.log('I run');
   textOfRange.textContent = `${value} x ${value}`;
   gridBox.innerHTML = '';
 
@@ -94,12 +96,6 @@ function updateSize(){
 }
 
 
-// color picker
-color.addEventListener('input',(e)=>{
-  const chooseColor = e.target.value;
-  paint(chooseColor);
-});
-
 function paint(color){
   const cubes = document.querySelectorAll('.cube');
 
@@ -111,9 +107,6 @@ function paint(color){
 }
 
 
-
-// random color
-randomColor.addEventListener('click',random);
 
 function random(){
   const cubes = document.querySelectorAll('.cube');
@@ -139,6 +132,19 @@ function getColor(){
 
 
 
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+      var context = this, args = arguments;
+      var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+  };
+};
+
 updateSize();
-
-
