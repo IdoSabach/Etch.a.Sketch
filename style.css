@@ -8,11 +8,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+html{
+  height: 100%;
+}
 body{
   display: flex;
-  /* min-height: 100vh; */
+  min-height: 100%;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 
@@ -100,7 +102,10 @@ button.active{
   transition: background-color 0.5s;
 }
 
-
+.footer{
+  margin-top: auto;
+  text-align: center;
+}
 
 
 .icon{
